@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>N0chteil Projects</title>
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+
+    <div class="content">
+      <img src="applexn0chteil.png" alt="" draggable="false" class="axn">
+      <hr>
+
+      <div class="adjust">
+        <form class="" action="" method="post">
+          <input type="file" name="inp_memoji" value="" onchange="encodeImageFileAsURL(this)"><br>
+
+          <p style="font-size: 20px; font-weight: bold;">Head size</p>
+
+          <input type="radio" id="big_head" name="inp_memoji_size" value="big">
+          <label for="big_head">Big</label><br>
+          <input type="radio" id="middle_head" name="inp_memoji_size" value="middle" checked>
+          <label for="middle_head">Middle</label><br>
+          <input type="radio" id="small_head" name="inp_memoji_size" value="small">
+          <label for="small_head">Small</label><br>
+
+          <p style="font-size: 20px; font-weight: bold;">Color</p>
+
+          <input type="radio" id="color_yellow" name="inp_memoji_color" value="yellow">
+          <label for="color_yellow">Yellow</label><br>
+          <input type="radio" id="color_blue" name="inp_memoji_color" value="blue">
+          <label for="color_blue">Blue</label><br>
+          <input type="radio" id="color_purple" name="inp_memoji_color" value="purple">
+          <label for="color_purple">Purple</label><br>
+          <input type="radio" id="color_orange" name="inp_memoji_color" value="orange">
+          <label for="color_orange">Orange</label><br>
+          <input type="radio" id="color_green" name="inp_memoji_color" value="green">
+          <label for="color_green">Green</label><br>
+          <input type="radio" id="color_silver" name="inp_memoji_color" value="silver">
+          <label for="color_silver">Silver</label><br>
+
+          <input type="submit" name="inp_submit" value="Submit">
+          <p style="font-size: 20px; margin-top: 15px; color: #FF4242; display: none;" class="errormsg"></p>
+        </form>
+      </div>
+    </div>
+
+    <script src="main.js" charset="utf-8"></script>
+  </body>
+</html>
