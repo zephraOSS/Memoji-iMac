@@ -8,9 +8,12 @@ document.querySelector(".content form").addEventListener("submit", (ele) => {
   else if(document.querySelector("form input[name='inp_memoji']").value) document.querySelector(".errormsg").textContent = "", document.querySelector(".errormsg").style.display = "none";
   else if(document.querySelector("form input[name='inp_memoji_color']:checked").value) document.querySelector(".errormsg").textContent = "", document.querySelector(".errormsg").style.display = "none";
 
+  document.querySelector("canvas")?.remove();
+
   const canvas = document.createElement('canvas');
   const input = {
     color: document.querySelector("form input[name='inp_memoji_color']:checked").value,
+    bgcolor: document.querySelector("form input[name='inp_memoji_bgcolor']:checked").value,
     head: document.querySelector("form input[name='inp_memoji_size']:checked").value
   };
 
@@ -18,8 +21,6 @@ document.querySelector(".content form").addEventListener("submit", (ele) => {
   canvas.width = 512;
   canvas.height = 512;
   canvas.style.zIndex = 8;
-  canvas.style.position = "absolute";
-  canvas.style.border = "1px solid";
 
   document.querySelector("body .content .adjust").appendChild(canvas);
 
@@ -31,11 +32,13 @@ document.querySelector(".content form").addEventListener("submit", (ele) => {
     head: input.head
   }
 
-  if(input.color === "yellow" || input.color === "orange") setting.background = "#F9DAAA";
-  else if(input.color === "blue") setting.background = "#CDEAFB";
-  else if(input.color === "purple") setting.background = "#D9D0F9";
-  else if(input.color === "green") setting.background = "#CAF0CB";
-  else if(input.color === "silver") setting.background = "#D5D5D7";
+  if(input.bgcolor === "yellow") setting.background = "#FBEAA9";
+  else if(input.bgcolor === "orange") setting.background = "#F9DAAA";
+  else if(input.bgcolor === "blue") setting.background = "#CDEAFB";
+  else if(input.bgcolor === "purple") setting.background = "#D9D0F9";
+  else if(input.bgcolor === "pink") setting.background = "#F6C7D3";
+  else if(input.bgcolor === "green") setting.background = "#CAF0CB";
+  else if(input.bgcolor === "silver") setting.background = "#D5D5D7";
 
   const ctx = canvas.getContext("2d");
 
