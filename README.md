@@ -1,5 +1,5 @@
 # Memoji-iMac
-Link: https://www.rlv.link/githubn0chteil/projects/memoji-imac/
+Link: https://imac.n0chteil.xyz/
 
 Generate images like:
 
