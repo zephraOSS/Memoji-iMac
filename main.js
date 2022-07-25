@@ -29,73 +29,91 @@ document.querySelector(".content form").addEventListener("submit", (ele) => {
 
     document.querySelector("canvas")?.remove();
 
-    const canvas = document.createElement("canvas");
-    const input = {
-        color: document.querySelector(
-            "form input[name='inp_memoji_color']:checked"
-        ).value,
-        bgcolor: document.querySelector(
-            "form input[name='inp_memoji_bgcolor']:checked"
-        ).value,
-        head: document.querySelector(
-            "form input[name='inp_memoji_size']:checked"
-        ).value
-    };
+    const canvas = document.createElement("canvas"),
+        input = {
+            color: document.querySelector(
+                "form input[name='inp_memoji_color']:checked"
+            ).value,
+            backgroundColor: document.querySelector(
+                "form input[name='inp_memoji_bgcolor']:checked"
+            ).value,
+            head: document.querySelector(
+                "form input[name='inp_memoji_size']:checked"
+            ).value
+        },
+        setting = {
+            background: "",
+            image: input.color,
+            head: input.head
+        };
 
-    canvas.id = "CursorLayer";
+    canvas.id = "MemojiGenerated";
     canvas.width = 512;
     canvas.height = 512;
-    canvas.style.zIndex = 8;
 
-    document.querySelector("body .content .adjust").appendChild(canvas);
+    document.querySelector("body .content").appendChild(canvas);
 
-    cursorLayer = document.getElementById("CursorLayer");
+    switch (input.backgroundColor) {
+        case "yellow":
+            setting.background = "#FBEAA9";
+            break;
 
-    var setting = {
-        background: "",
-        image: input.color,
-        head: input.head
-    };
+        case "orange":
+            setting.background = "#F9DAAA";
+            break;
 
-    if (input.bgcolor === "yellow") setting.background = "#FBEAA9";
-    else if (input.bgcolor === "orange") setting.background = "#F9DAAA";
-    else if (input.bgcolor === "blue") setting.background = "#CDEAFB";
-    else if (input.bgcolor === "purple") setting.background = "#D9D0F9";
-    else if (input.bgcolor === "pink") setting.background = "#F6C7D3";
-    else if (input.bgcolor === "green") setting.background = "#CAF0CB";
-    else if (input.bgcolor === "silver") setting.background = "#D5D5D7";
+        case "blue":
+            setting.background = "#CDEAFB";
+            break;
 
-    const ctx = canvas.getContext("2d");
+        case "purple":
+            setting.background = "#D9D0F9";
+            break;
 
-    var imac = new Image();
-    imac.onload = function () {
-        ctx.drawImage(imac, 27, 241, 457, 271);
-    };
-    imac.src = `img/computers/${setting.image}.png`;
+        case "pink":
+            setting.background = "#F6C7D3";
+            break;
+
+        case "green":
+            setting.background = "#CAF0CB";
+            break;
+
+        case "silver":
+            setting.background = "#D5D5D7";
+            break;
+    }
+
+    const ctx = canvas.getContext("2d"),
+        iMac = new Image();
+
+    iMac.addEventListener("load", () => ctx.drawImage(iMac, 27, 241, 457, 271));
+    iMac.src = `img/computers/${setting.image}.png`;
 
     setTimeout(function () {
+        const memoji = new Image();
+
         ctx.globalCompositeOperation = "destination-over";
 
-        var memoji = new Image();
-        memoji.onload = function () {
+        memoji.addEventListener("load", () => {
             if (setting.head === "big")
                 ctx.drawImage(memoji, 31, -20, 450, 450);
             else if (setting.head === "middle")
                 ctx.drawImage(memoji, 45, -5, 421, 421);
             else if (setting.head === "small")
                 ctx.drawImage(memoji, 51, 1, 410, 410);
-        };
+        });
+
         memoji.src = memojiURL;
 
-        setTimeout(function () {
+        memoji.addEventListener("load", () => {
             ctx.fillStyle = setting.background;
             ctx.fillRect(0, 0, 512, 512);
-        }, 20);
+        });
     }, 50);
 
-    document.querySelector(".errorMSG").textContent =
+    document.querySelector(".errorMsg").textContent =
         "If the image contains errors, please submit the form again";
-    document.querySelector(".errorMSG").style.display = "block";
+    document.querySelector(".errorMsg").style.display = "block";
 });
 
 function encodeImageFileAsURL(element) {

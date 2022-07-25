@@ -1,69 +1,233 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>N0chteil Projects</title>
-    <link rel="stylesheet" href="main.css">
-  </head>
-  <body>
+    <head>
+        <meta charset="utf-8" />
+        <title>Memoji iMac Generator - zephra</title>
+        <link rel="stylesheet" href="main.css" />
+    </head>
+    <body>
+        <div class="content">
+            <div class="header">
+                <img
+                    src="img/memojis.png"
+                    alt="Multiple Memojis"
+                    draggable="false"
+                    class="logo"
+                />
+                <a href="https://support.apple.com/HT208986" rel="noreferrer"
+                    >© Apple</a
+                >
+            </div>
 
-    <div class="content">
-      <img src="applexn0chteil.png" alt="" draggable="false" class="axn">
-      <hr>
+            <form action="" method="post">
+                <div class="formHead">
+                    <input
+                        type="file"
+                        name="inp_memoji"
+                        class="button"
+                        value=""
+                        onchange="encodeImageFileAsURL(this)"
+                    />
 
-      <div class="adjust">
-        <form class="" action="" method="post">
-          <input type="file" name="inp_memoji" value="" onchange="encodeImageFileAsURL(this)"><br>
+                    <div class="errorMsg">
+                        <span>asdasd</span>
+                    </div>
+                </div>
 
-          <p style="font-size: 20px; font-weight: bold;">Head size</p>
+                <div class="settings">
+                    <div class="setting">
+                        <p class="title">Head size</p>
 
-          <input type="radio" id="big_head" name="inp_memoji_size" value="big">
-          <label for="big_head">Big</label><br>
-          <input type="radio" id="middle_head" name="inp_memoji_size" value="middle" checked>
-          <label for="middle_head">Middle</label><br>
-          <input type="radio" id="small_head" name="inp_memoji_size" value="small">
-          <label for="small_head">Small</label><br>
+                        <div class="radio">
+                            <input
+                                type="radio"
+                                id="big_head"
+                                name="inp_memoji_size"
+                                value="big"
+                            />
+                            <label for="big_head">Big</label>
+                        </div>
 
-          <p style="font-size: 20px; font-weight: bold;">Color</p>
+                        <div class="radio">
+                            <input
+                                type="radio"
+                                id="middle_head"
+                                name="inp_memoji_size"
+                                value="middle"
+                                checked
+                            />
+                            <label for="middle_head">Middle</label>
+                        </div>
 
-          <input type="radio" id="color_yellow" name="inp_memoji_color" value="yellow">
-          <label for="color_yellow">Yellow</label><br>
-          <input type="radio" id="color_blue" name="inp_memoji_color" value="blue">
-          <label for="color_blue">Blue</label><br>
-          <input type="radio" id="color_purple" name="inp_memoji_color" value="purple">
-          <label for="color_purple">Purple</label><br>
-          <input type="radio" id="color_pink" name="inp_memoji_color" value="pink">
-          <label for="color_pink">Pink</label><br>
-          <input type="radio" id="color_orange" name="inp_memoji_color" value="orange">
-          <label for="color_orange">Orange</label><br>
-          <input type="radio" id="color_green" name="inp_memoji_color" value="green">
-          <label for="color_green">Green</label><br>
-          <input type="radio" id="color_silver" name="inp_memoji_color" value="silver">
-          <label for="color_silver">Silver</label><br>
+                        <div class="radio">
+                            <input
+                                type="radio"
+                                id="small_head"
+                                name="inp_memoji_size"
+                                value="small"
+                            />
+                            <label for="small_head">Small</label>
+                        </div>
+                    </div>
 
-          <p style="font-size: 20px; font-weight: bold;">Background color</p>
+                    <div class="setting">
+                        <p class="title">Color</p>
 
-          <input type="radio" id="bgcolor_yellow" name="inp_memoji_bgcolor" value="yellow">
-          <label for="bgcolor_yellow">Yellow</label><br>
-          <input type="radio" id="bgcolor_blue" name="inp_memoji_bgcolor" value="blue">
-          <label for="bgcolor_blue">Blue</label><br>
-          <input type="radio" id="bgcolor_purple" name="inp_memoji_bgcolor" value="purple">
-          <label for="bgcolor_purple">Purple</label><br>
-          <input type="radio" id="bgcolor_pink" name="inp_memoji_bgcolor" value="pink">
-          <label for="bgcolor_pink">Pink</label><br>
-          <input type="radio" id="bgcolor_orange" name="inp_memoji_bgcolor" value="orange">
-          <label for="bgcolor_orange">Orange</label><br>
-          <input type="radio" id="bgcolor_green" name="inp_memoji_bgcolor" value="green">
-          <label for="bgcolor_green">Green</label><br>
-          <input type="radio" id="bgcolor_silver" name="inp_memoji_bgcolor" value="silver">
-          <label for="bgcolor_silver">Silver</label><br>
+                        <div class="radio">
+                            <input
+                                type="radio"
+                                id="color_yellow"
+                                name="inp_memoji_color"
+                                value="yellow"
+                            />
+                            <label for="color_yellow">Yellow</label>
+                        </div>
 
-          <input type="submit" name="inp_submit" value="Submit">
-          <p style="font-size: 20px; margin-top: 15px; color: #FF4242; display: none;" class="errormsg"></p>
-        </form>
-      </div>
-    </div>
+                        <div class="radio">
+                            <input
+                                type="radio"
+                                id="color_blue"
+                                name="inp_memoji_color"
+                                value="blue"
+                            />
+                            <label for="color_blue">Blue</label>
+                        </div>
 
-    <script src="main.js" charset="utf-8"></script>
-  </body>
+                        <div class="radio">
+                            <input
+                                type="radio"
+                                id="color_purple"
+                                name="inp_memoji_color"
+                                value="purple"
+                            />
+                            <label for="color_purple">Purple</label>
+                        </div>
+
+                        <div class="radio">
+                            <input
+                                type="radio"
+                                id="color_pink"
+                                name="inp_memoji_color"
+                                value="pink"
+                            />
+                            <label for="color_pink">Pink</label>
+                        </div>
+
+                        <div class="radio">
+                            <input
+                                type="radio"
+                                id="color_orange"
+                                name="inp_memoji_color"
+                                value="orange"
+                            />
+                            <label for="color_orange">Orange</label>
+                        </div>
+
+                        <div class="radio">
+                            <input
+                                type="radio"
+                                id="color_green"
+                                name="inp_memoji_color"
+                                value="green"
+                            />
+                            <label for="color_green">Green</label>
+                        </div>
+
+                        <div class="radio">
+                            <input
+                                type="radio"
+                                id="color_silver"
+                                name="inp_memoji_color"
+                                value="silver"
+                            />
+                            <label for="color_silver">Silver</label>
+                        </div>
+                    </div>
+
+                    <div class="setting">
+                        <p class="title">Background color</p>
+
+                        <div class="radio">
+                            <input
+                                type="radio"
+                                id="bgcolor_yellow"
+                                name="inp_memoji_bgcolor"
+                                value="yellow"
+                            />
+                            <label for="bgcolor_yellow">Yellow</label>
+                        </div>
+
+                        <div class="radio">
+                            <input
+                                type="radio"
+                                id="bgcolor_blue"
+                                name="inp_memoji_bgcolor"
+                                value="blue"
+                            />
+                            <label for="bgcolor_blue">Blue</label>
+                        </div>
+
+                        <div class="radio">
+                            <input
+                                type="radio"
+                                id="bgcolor_purple"
+                                name="inp_memoji_bgcolor"
+                                value="purple"
+                            />
+                            <label for="bgcolor_purple">Purple</label>
+                        </div>
+
+                        <div class="radio">
+                            <input
+                                type="radio"
+                                id="bgcolor_pink"
+                                name="inp_memoji_bgcolor"
+                                value="pink"
+                            />
+                            <label for="bgcolor_pink">Pink</label>
+                        </div>
+
+                        <div class="radio">
+                            <input
+                                type="radio"
+                                id="bgcolor_orange"
+                                name="inp_memoji_bgcolor"
+                                value="orange"
+                            />
+                            <label for="bgcolor_orange">Orange</label>
+                        </div>
+
+                        <div class="radio">
+                            <input
+                                type="radio"
+                                id="bgcolor_green"
+                                name="inp_memoji_bgcolor"
+                                value="green"
+                            />
+                            <label for="bgcolor_green">Green</label>
+                        </div>
+
+                        <div class="radio">
+                            <input
+                                type="radio"
+                                id="bgcolor_silver"
+                                name="inp_memoji_bgcolor"
+                                value="silver"
+                            />
+                            <label for="bgcolor_silver">Silver</label>
+                        </div>
+                    </div>
+                </div>
+
+                <input
+                    type="submit"
+                    name="inp_submit"
+                    value="Submit"
+                    class="button btn-submit"
+                />
+            </form>
+        </div>
+
+        <script src="main.js" charset="utf-8"></script>
+    </body>
 </html>
