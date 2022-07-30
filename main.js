@@ -4,27 +4,27 @@ document.querySelector(".content form").addEventListener("submit", (ele) => {
     ele.preventDefault();
 
     if (!document.querySelector("form input[name='inp_memoji']").value) {
-        document.querySelector(".errorMSG").textContent =
+        document.querySelector(".errorMsg").textContent =
             "Please upload a picture";
-        document.querySelector(".errorMSG").style.display = "block";
+        document.querySelector(".errorMsg").style.display = "block";
         return;
     } else if (
         !document.querySelector("form input[name='inp_memoji_color']:checked")
             .value
     ) {
-        document.querySelector(".errorMSG").textContent =
+        document.querySelector(".errorMsg").textContent =
             "Please select a color";
-        document.querySelector(".errorMSG").style.display = "block";
+        document.querySelector(".errorMsg").style.display = "block";
         return;
     } else if (document.querySelector("form input[name='inp_memoji']").value) {
-        document.querySelector(".errorMSG").textContent = "";
-        document.querySelector(".errorMSG").style.display = "none";
+        document.querySelector(".errorMsg").textContent = "";
+        document.querySelector(".errorMsg").style.display = "none";
     } else if (
         document.querySelector("form input[name='inp_memoji_color']:checked")
             .value
     ) {
-        document.querySelector(".errorMSG").textContent = "";
-        document.querySelector(".errorMSG").style.display = "none";
+        document.querySelector(".errorMsg").textContent = "";
+        document.querySelector(".errorMsg").style.display = "none";
     }
 
     document.querySelector("canvas")?.remove();
